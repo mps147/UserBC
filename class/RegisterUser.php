@@ -1,18 +1,25 @@
 <?php
-require_once 'ValidateUser.php';
+require_once 'UserBC.php';
 /**
  * Class responsible for manage data base
  * @date: 28-04-2017 
  * @author Marcelo
  */
-class RegisterUser extends ValidateUser{
+class RegisterUser extends UserBC{
     private $hostDb;
     private $userDb;
     private $passDb;
     private $dbnameDb;
-
+    private $validator;
+    
+    public function validateFields(){
+      return $this->setValidator(TRUE);
+    }
+    
     public function insertDB(){
-       
+       if($this->getValidator()):
+         echo "São dados foram cadastrados com sucesso";
+       endif;
     }
     
     public function getHostDb() {
@@ -45,5 +52,12 @@ class RegisterUser extends ValidateUser{
 
     public function setDbnameDb($dbnameDb) {
         $this->dbnameDb = $dbnameDb;
+    }
+    function getValidator() {
+      return $this->validator;
+    }
+
+    function setValidator($validator) {
+      $this->validator = $validator;
     }
 }
