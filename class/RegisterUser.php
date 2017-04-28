@@ -12,6 +12,16 @@ class RegisterUser extends UserBC{
     private $dbnameDb;
     private $validator;
     
+    function __construct() {
+      parent::__construct();
+      $this->setHostDb('127.0.0.1');
+      $this->setUserDb('root');
+      $this->setPassDb(NULL);
+      $this->setDbnameDb('UserBinaryCodeDB');
+      $this->setValidator(FALSE);
+    }
+
+    
     public function validateFields(){
       return $this->setValidator(TRUE);
     }
