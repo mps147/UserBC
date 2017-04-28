@@ -1,19 +1,18 @@
 <?php
-require_once 'ValidadeUser.php';
+require_once 'ValidateUser.php';
 /**
  * Class responsible for manage data base
  * @date: 28-04-2017 
  * @author Marcelo
  */
-abstract class RegisterUser extends ValidateUser{
-    private $host;
-    private $user;
-    private $pass;
-    private $dbname;
+class RegisterUser extends ValidateUser{
+    private $hostDb;
+    private $userDb;
+    private $passDb;
+    private $dbnameDb;
 
-    private function insertDB(){
-        if($this->validator):
-            echo "nome pode ser inserido ao banco de dados";
-        endif;
+    public function insertDB(){
+        
+       echo $this->getValidator();
     }
 }

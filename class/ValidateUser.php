@@ -18,7 +18,7 @@ class ValidateUser extends UserBC {
      * @return boolean
      */
     public function validateName() {
-        return $this->setValidator(TRUE);
+       $this->setValidator(TRUE);
     }
     
     function getValidator() {
