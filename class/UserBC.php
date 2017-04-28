@@ -15,6 +15,7 @@ abstract class UserBC {
   protected $rg;
   protected $cpf;
   protected $pass;
+  protected $validator;
 
   function __construct() {
     $this->setName(empty($_POST['registerName']) ? '' : $_POST['registerName']);
@@ -24,6 +25,7 @@ abstract class UserBC {
     $this->setRg(empty($_POST['registerRG'])? '' : $_POST['registerRG']);
     $this->setCpf(empty($_POST['registerCPF'])? '' : $_POST['registerCPF']);
     $this->setPass(empty($_POST['registerPass'])? '' : $_POST['registerPass']);
+    $this->validator = TRUE;
   }
 
   function getName() {

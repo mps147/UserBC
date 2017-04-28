@@ -1,9 +1,14 @@
 <?php
-  require_once 'class/ValidateUser.php';
   require_once 'class/RegisterUser.php';
   
+  
   $val = new ValidateUser();
+  $val->validateName();
   $db = new RegisterUser();
-  $val->validateName();  
   $db->insertDB();
+  echo "<pre>";
+  print_r($db);
+  echo "</pre>";
+  
+  
 

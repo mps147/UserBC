@@ -1,5 +1,4 @@
 <?php
-
 require_once 'UserBC.php';
 
 /**
@@ -15,17 +14,16 @@ class ValidateUser extends UserBC {
      * @date: 27-04-2017
      * @name validateName
      * @descripiton: method for validate user name
-     * @return boolean
      */
     public function validateName() {
-       $this->setValidator(TRUE);
+      
     }
     
-    function getValidator() {
+    protected function getValidator() {
         return $this->validator;
     }
 
-    function setValidator($validator) {
-        $this->validator = $validator;
+    private function setValidator($val) {
+        $this->validator = $val;
     }
 }
