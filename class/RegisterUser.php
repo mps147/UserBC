@@ -5,7 +5,7 @@ require_once 'UserBC.php';
  * @date: 28-04-2017 
  * @author Marcelo
  */
-class RegisterUser extends UserBC{
+final class RegisterUser extends UserBC{
     private $hostDb;
     private $userDb;
     private $passDb;
@@ -17,13 +17,21 @@ class RegisterUser extends UserBC{
       $this->setHostDb('127.0.0.1');
       $this->setUserDb('root');
       $this->setPassDb(NULL);
-      $this->setDbnameDb('UserBinaryCodeDB');
+      $this->setDbnameDb('generate_passBC');
       $this->setValidator(FALSE);
+      
+      try{
+        $connection = new PDO("mysql:host={$this->getHostDb()}; dbname={$this->getDbnameDb()}", "root", NULL);
+        $connection->query("");
+      } catch (PDOException $ex) {
+        $ex->errorInfo($ex);
+      }
     }
 
     
     public function validateFields(){
-      return $this->setValidator(TRUE);
+      $this->setValidator(TRUE);
+      $this->insertDB();
     }
     
     public function insertDB(){
