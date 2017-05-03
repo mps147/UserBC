@@ -11,6 +11,7 @@ final class RegisterUser extends UserBC{
     private $passDb;
     private $dbnameDb;
     private $validator;
+    private $connection;
     
     function __construct() {
       parent::__construct();
@@ -21,8 +22,7 @@ final class RegisterUser extends UserBC{
       $this->setValidator(FALSE);
       
       try{
-        $connection = new PDO("mysql:host={$this->getHostDb()}; dbname={$this->getDbnameDb()}", "root", NULL);
-        $connection->query("");
+        $this->connection = new PDO("mysql:host={$this->getHostDb()}; dbname={$this->getDbnameDb()}", "root", NULL);
       } catch (PDOException $ex) {
         $ex->errorInfo($ex);
       }
@@ -77,5 +77,12 @@ final class RegisterUser extends UserBC{
 
     function setValidator($validator) {
       $this->validator = $validator;
+    }
+    function getConnection() {
+      return $this->connection;
+    }
+
+    function setConnection($connection) {
+      $this->connection = $connection;
     }
 }
