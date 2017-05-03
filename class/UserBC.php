@@ -15,8 +15,8 @@ abstract class UserBC {
   protected $rg;
   protected $cpf;
   protected $pass;
-
-  function __construct() {
+  protected $repass;
+          function __construct() {
     $this->setName(empty($_POST['registerName']) ? '' : $_POST['registerName']);
     $this->setPhonePrimary(empty($_POST['registerPhone1']) ? '' : $_POST['registerPhone1']);
     $this->setPhoneSecundy(empty($_POST['registerPhone2']) ? '' : $_POST['registerPhone2']);
@@ -24,6 +24,7 @@ abstract class UserBC {
     $this->setRg(empty($_POST['registerRG'])? '' : $_POST['registerRG']);
     $this->setCpf(empty($_POST['registerCPF'])? '' : $_POST['registerCPF']);
     $this->setPass(empty($_POST['registerPass'])? '' : $_POST['registerPass']);
+    $this->setRepass(empty($_POST['registerRepass'])? '' : $_POST['registerRepass']);
   }
 
   function getName() {
@@ -79,5 +80,13 @@ abstract class UserBC {
 
   function setPass($pass) {
     $this->pass = $pass;
+  }
+  
+  public function getRepass() {
+    return $this->repass;
+  }
+
+  public function setRepass($repass) {
+    $this->repass = $repass;
   }
 }

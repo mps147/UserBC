@@ -19,8 +19,10 @@
             <input type="text" name="registerRG"><br />
             <label>CPF:</label>
             <input type="text" name="registerCPF"><br />
-            <label>Pass:</label>
-            <input type="password" name="registerPass" />
+            <label>Senha:</label>
+            <input type="password" name="registerPass" /><br/>
+            <label>Repita a Senha:</label>
+            <input type="password" name="registerRepass" />
             <button type="submit">Enviar</button>
         </form>
     </body>

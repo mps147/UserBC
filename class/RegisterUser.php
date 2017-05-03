@@ -5,7 +5,7 @@ require_once 'UserBC.php';
  * @date: 28-04-2017 
  * @author Marcelo
  */
-final class RegisterUser extends UserBC{
+class RegisterUser extends UserBC{
     private $hostDb;
     private $userDb;
     private $passDb;
@@ -27,13 +27,29 @@ final class RegisterUser extends UserBC{
         $ex->errorInfo($ex);
       }
     }
-
     
+    /**
+     * @name: validateFields
+     * @author Marcelo Pereira <marcelopereiraIFSP@gmail.com>
+     * @date: 03-05-2017;
+     * @description: validate fields is used for validate user register data, for not suportate sql injection.
+     * @return boolean return boolean data for confirm validate.
+     */
     public function validateFields(){
-      $this->setValidator(TRUE);
-      $this->insertDB();
+      if ($this->getRepass() === $this->getPass()):
+        echo "Senhas podem serem cadastradas com sucesso";
+      
+        return $this->setValidator(TRUE);
+      else:
+        return $this->setValidator(FALSE);
+      endif;
     }
     
+    /**
+     * @name: insertDB();
+     * @date: 03-05-2017;
+     * @description: Function used for to insert in data base the users datas resgisterds,
+     */
     public function insertDB(){
        if($this->getValidator()):
          echo "São dados foram cadastrados com sucesso";
