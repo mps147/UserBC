@@ -7,6 +7,7 @@
     </head>
     <body>
         <form action="index.php" method="post">
+            <span><?php echo $db->getMsg()?></span><br/>
             <label>Nome:</label>
             <input type="text" name="registerName"><br/>
             <label>Celular:</label>

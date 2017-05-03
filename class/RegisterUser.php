@@ -12,6 +12,7 @@ class RegisterUser extends UserBC{
     private $dbnameDb;
     private $validator;
     private $connection;
+    private $msg;
     
     function __construct() {
       parent::__construct();
@@ -33,16 +34,18 @@ class RegisterUser extends UserBC{
      * @author Marcelo Pereira <marcelopereiraIFSP@gmail.com>
      * @date: 03-05-2017;
      * @description: validate fields is used for validate user register data, for not suportate sql injection.
-     * @return boolean return boolean data for confirm validate.
+     * @return Call the function insertDB().
      */
     public function validateFields(){
       if ($this->getRepass() === $this->getPass()):
-        echo "Senhas podem serem cadastradas com sucesso";
-      
-        return $this->setValidator(TRUE);
+        $this->setMsg("Cadastro Realizado com Sucesso! :)");
+        $this->setValidator(TRUE);
       else:
-        return $this->setValidator(FALSE);
+        $this->setMsg("Opss! Houve um erro! Parece que as senhas digitadas não se coincidem!");
+        $this->setValidator(FALSE);
       endif;
+      
+      return $this->insertDB();
     }
     
     /**
@@ -52,7 +55,7 @@ class RegisterUser extends UserBC{
      */
     public function insertDB(){
        if($this->getValidator()):
-         echo "São dados foram cadastrados com sucesso";
+         $this->connection->query("INSERT INTO `users` (name, phonePrimary, phoneSecundy, email, rg, cpf) VALUES ('{$this->getName()}', '{$this->getPhonePrimary()}', '{$this->getPhoneSecundy()}', '{$this->getEmail()}', '{$this->getRg()}', '{$this->getCpf()}');");
        endif;
     }
     
@@ -100,5 +103,13 @@ class RegisterUser extends UserBC{
 
     function setConnection($connection) {
       $this->connection = $connection;
+    }
+    
+    public function getMsg() {
+      return $this->msg;
+    }
+
+    public function setMsg($msg) {
+      $this->msg = $msg;
     }
 }
