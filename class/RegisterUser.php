@@ -40,15 +40,63 @@ class RegisterUser extends UserBC {
    * @return Call the function insertDB().
    */
   public function validateFields() {
-    if ($this->getRepass() === $this->getPass()):
+    if (!(empty($this->getName()))):
+      $query = $this->connection->prepare("SELECT name FROM users WHERE name = '{$this->getName()}'") or die($this->connection->errorInfo());
+      $query->execute();
+      $numRow = $query->rowCount();
+
+      if ($numRow != 0):
+        $this->setMsg("Nome já está sendo usado!");
+        $this->setValidator(FALSE);
+        return FALSE;
+      endif;
+    endif;
+    
+    if (!(empty($this->getEmail()))):
+      $query = $this->connection->prepare("SELECT email FROM users WHERE email = '{$this->getEmail()}'") or die($this->connection->errorInfo());
+      $query->execute();
+      $numRow = $query->rowCount();
+
+      if ($numRow != 0):
+        $this->setMsg("Email já está sendo usado!");
+        $this->setValidator(FALSE);
+        return FALSE;
+      endif;
+    endif;
+    
+    if(!empty($this->getRg())):
+      $query = $this->connection->prepare("SELECT rg FROM users WHERE rg = '{$this->getRg()}'") or die($this->connection->errorInfo());
+      $query->execute();
+      $numRow = $query->rowCount();
+      
+      if($numRow != 0):
+        $this->setMsg("RG já está sendo utilizado!");
+        $this->setValidator(FALSE);
+        return FALSE;
+      endif;
+    endif;
+    
+    if(!empty($this->getCpf())):
+      $query = $this->connection->prepare("SELECT cpf FROM users WHERE cpf = '{$this->getCpf()}'") or die($this->connection->errorInfo());
+      $query->execute();
+      $numRow = $query->rowCount();
+      
+      if($numRow != 0):
+        $this->setMsg("CPF já está sendo utilizado!");
+        $this->setValidator(FALSE);
+        return FALSE;
+      endif;
+    endif;
+    
+    if ($this->getRepass() === $this->getPass() AND !(empty($this->getPass()) AND !(empty($this->getRepass())))):
       $this->setMsg("Cadastro Realizado com Sucesso! :)");
       $this->setValidator(TRUE);
+      $this->insertDB();
     else:
       $this->setMsg("Opss! Houve um erro! Parece que as senhas digitadas não se coincidem!");
       $this->setValidator(FALSE);
+      return FALSE;
     endif;
-
-    return $this->insertDB();
   }
 
   /**

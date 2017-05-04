@@ -14,17 +14,17 @@
             <form id="fm_register" action="index.php" method="post">
                 <span><?php echo $db->getMsg() ?></span><br/>
                 <label>Nome:</label>
-                <input type="text" name="registerName" required><br/>
+                <input type="text" name="registerName" required value="<?php echo (empty($_POST['registerName'])? '' : $_POST['registerName'])?>"><br/>
                 <label>Celular:</label>
-                <input type="text" name="registerPhone1" required><br/>
+                <input type="text" name="registerPhone1" required value="<?php echo (empty($_POST['registerPhone1'])? '' : $_POST['registerPhone1'])?>"><br/>
                 <label>Telefone:</label>
-                <input type="text" name="registerPhone2" required><br />
+                <input type="text" name="registerPhone2" required value="<?php echo (empty($_POST['registerPhone2'])? '' : $_POST['registerPhone2'])?>"><br />
                 <label>Email:</label>
-                <input type="text" name="registerEmail" required><br />
+                <input type="text" name="registerEmail" required value="<?php echo (empty($_POST['registerEmail'])? '' : $_POST['registerEmail'])?>"><br />
                 <label>RG:</label>
-                <input type="text" name="registerRG" required><br />
+                <input type="text" name="registerRG" required value="<?php echo (empty($_POST['registerRG'])? '' : $_POST['registerRG'])?>"><br />
                 <label>CPF:</label>
-                <input type="text" name="registerCPF" required><br />
+                <input type="text" name="registerCPF" required value="<?php echo (empty($_POST['registerCPF'])? '' : $_POST['registerCPF'])?>"><br />
                 <label>Senha:</label>
                 <input type="password" name="registerPass" required/><br/>
                 <label>Repita a Senha:</label>
