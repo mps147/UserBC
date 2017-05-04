@@ -88,7 +88,7 @@ class RegisterUser extends UserBC {
       endif;
     endif;
     
-    if ($this->getRepass() === $this->getPass() AND !(empty($this->getPass()) AND !(empty($this->getRepass())))):
+    if ($this->getRepass() === $this->getPass() AND empty($this->getRepass()) AND empty($this->getPass() == NULL)):
       $this->setMsg("Cadastro Realizado com Sucesso! :)");
       $this->setValidator(TRUE);
       $this->insertDB();

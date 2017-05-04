@@ -11,7 +11,7 @@
     </head>
     <body>
         <section class="container">
-            <form id="fm_register" action="index.php" method="post">
+            <form id="fm_register" action="index.php?registerUser=1" method="post">
                 <span><?php echo $db->getMsg() ?></span><br/>
                 <label>Nome:</label>
                 <input type="text" name="registerName" required value="<?php echo (empty($_POST['registerName'])? '' : $_POST['registerName'])?>"><br/>
