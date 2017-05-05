@@ -11,6 +11,30 @@
     </head>
     <body>
         <section class="container">
+            <fieldset id="fm_login">
+                <legend>Login</legend>
+
+                <form action="index.php" method="POST">
+                    <div class="form-group">
+                        <label>Email/RG:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                            <input class="form-control" type="text" name="loginUser" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                            <input class="form-control" type="text" name="loginPass" required>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary pull-right" type="submit">Entrar <i class="glyphicon glyphicon-log-in"></i></button>
+                </form>
+            </fieldset>
+            
             <fieldset id="fm_register">
                 <legend>Cadastro</legend>
                 <form action="index.php" method="post">
@@ -84,7 +108,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary pull-right" type="submit">Enviar</button>
+                    <button class="btn btn-primary pull-right" type="submit">Enviar <i class="glyphicon glyphicon-send"></i></button>
                 </form>
             </fieldset>
         </section>

@@ -1,7 +1,13 @@
 /* 
     Created on : May 3, 2017, 1:11:53 PM
-    Author     : coven
+    Author     : Marcelo Pereira
 */
+
+#fm_login{
+    @include make-xs-column(12);
+    @include make-sm-column(6);
+    @include make-md-column(6);
+}
 
 #fm_register{
     @include make-xs-column(12);
