@@ -1,0 +1,47 @@
+/* 
+    Created on : May 3, 2017, 1:11:53 PM
+    Author     : coven
+*/
+
+#fm_register{
+    @include make-xs-column(12);
+    @include make-sm-column(6);
+    @include make-md-column(6);
+    > form{
+        > .field-invalid{            
+            text-align: center;
+            background-color: red;
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 5px 0px;
+            border-radius: 5px;
+            
+            > p{
+                margin: 0px;
+            }
+        }
+        
+        > .rg-sucess{
+            text-align: center;
+            background-color: #5fd849;
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 5px 0px;
+            border-radius: 5px;
+            
+            > p{
+                margin: 0px;
+            }
+        }
+
+        > .row{
+            >.form-pass{
+            @include make-xs-column(12);
+            @include make-sm-column(6);
+            @include make-md-column(6);
+            }
+        }
+    }
+}
