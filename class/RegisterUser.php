@@ -16,6 +16,7 @@ class RegisterUser extends UserBC {
   private $validator;
   private $connection;
   private $msg;
+  private $class;
 
   function __construct() {
     parent::__construct();
@@ -46,56 +47,64 @@ class RegisterUser extends UserBC {
       $numRow = $query->rowCount();
 
       if ($numRow != 0):
-        $this->setMsg("Nome já está sendo usado!");
+        $this->setMsg("Nome já está sendo utilizado!");
         $this->setValidator(FALSE);
+        $this->setClass("field-invalid");
         return FALSE;
       endif;
     endif;
-    
+
     if (!(empty($this->getEmail()))):
       $query = $this->connection->prepare("SELECT email FROM users WHERE email = '{$this->getEmail()}'") or die($this->connection->errorInfo());
       $query->execute();
       $numRow = $query->rowCount();
 
       if ($numRow != 0):
-        $this->setMsg("Email já está sendo usado!");
+        $this->setMsg("Email já está sendo utilizado!");
         $this->setValidator(FALSE);
+        $this->setClass("field-invalid");
         return FALSE;
       endif;
     endif;
-    
-    if(!empty($this->getRg())):
+
+    if (!empty($this->getRg())):
       $query = $this->connection->prepare("SELECT rg FROM users WHERE rg = '{$this->getRg()}'") or die($this->connection->errorInfo());
       $query->execute();
       $numRow = $query->rowCount();
-      
-      if($numRow != 0):
+
+      if ($numRow != 0):
         $this->setMsg("RG já está sendo utilizado!");
         $this->setValidator(FALSE);
+        $this->setClass("field-invalid");
         return FALSE;
       endif;
     endif;
-    
-    if(!empty($this->getCpf())):
+
+    if (!empty($this->getCpf())):
       $query = $this->connection->prepare("SELECT cpf FROM users WHERE cpf = '{$this->getCpf()}'") or die($this->connection->errorInfo());
       $query->execute();
       $numRow = $query->rowCount();
-      
-      if($numRow != 0):
+
+      if ($numRow != 0):
         $this->setMsg("CPF já está sendo utilizado!");
+        $this->setClass("field-invalid");
         $this->setValidator(FALSE);
         return FALSE;
       endif;
     endif;
-    
-    if ($this->getRepass() === $this->getPass() AND empty($this->getRepass()) AND empty($this->getPass() == NULL)):
-      $this->setMsg("Cadastro Realizado com Sucesso! :)");
-      $this->setValidator(TRUE);
-      $this->insertDB();
-    else:
-      $this->setMsg("Opss! Houve um erro! Parece que as senhas digitadas não se coincidem!");
-      $this->setValidator(FALSE);
-      return FALSE;
+
+    if (!(empty($this->getRepass())) AND ! (empty($this->getPass()))):
+      if ($this->getRepass() === $this->getPass()):
+        $this->setMsg("Cadastro Realizado com Sucesso! :)");
+        $this->setClass("rg-sucess");
+        $this->setValidator(TRUE);
+        $this->insertDB();
+      else:
+        $this->setMsg("Opss! Houve um erro! Parece que as senhas digitadas não se coincidem!");
+        $this->setClass("field-invalid");
+        $this->setValidator(FALSE);
+        return FALSE;
+      endif;
     endif;
   }
 
@@ -165,6 +174,14 @@ class RegisterUser extends UserBC {
 
   public function setMsg($msg) {
     $this->msg = $msg;
+  }
+
+  public function getClass() {
+    return $this->class;
+  }
+
+  public function setClass($class) {
+    $this->class = $class;
   }
 
 }

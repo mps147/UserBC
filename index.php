@@ -11,26 +11,82 @@
     </head>
     <body>
         <section class="container">
-            <form id="fm_register" action="index.php?registerUser=1" method="post">
-                <span><?php echo $db->getMsg() ?></span><br/>
-                <label>Nome:</label>
-                <input type="text" name="registerName" required value="<?php echo (empty($_POST['registerName'])? '' : $_POST['registerName'])?>"><br/>
-                <label>Celular:</label>
-                <input type="text" name="registerPhone1" required value="<?php echo (empty($_POST['registerPhone1'])? '' : $_POST['registerPhone1'])?>"><br/>
-                <label>Telefone:</label>
-                <input type="text" name="registerPhone2" required value="<?php echo (empty($_POST['registerPhone2'])? '' : $_POST['registerPhone2'])?>"><br />
-                <label>Email:</label>
-                <input type="text" name="registerEmail" required value="<?php echo (empty($_POST['registerEmail'])? '' : $_POST['registerEmail'])?>"><br />
-                <label>RG:</label>
-                <input type="text" name="registerRG" required value="<?php echo (empty($_POST['registerRG'])? '' : $_POST['registerRG'])?>"><br />
-                <label>CPF:</label>
-                <input type="text" name="registerCPF" required value="<?php echo (empty($_POST['registerCPF'])? '' : $_POST['registerCPF'])?>"><br />
-                <label>Senha:</label>
-                <input type="password" name="registerPass" required/><br/>
-                <label>Repita a Senha:</label>
-                <input type="password" name="registerRepass" />
-                <button class="btn btn-primary" type="submit">Enviar</button>
-            </form>
+            <fieldset id="fm_register">
+                <legend>Cadastro</legend>
+                <form action="index.php" method="post">
+                    <div class="<?= $db->getClass(); ?>">
+                        <p><?= $db->getMsg(); ?></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nome:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                            <input class="form-control" type="text" name="registerName" required value="<?php echo (empty($_POST['registerName']) ? '' : $_POST['registerName']) ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Celular:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></div>
+                            <input class="form-control" type="text" name="registerPhone1" required value="<?php echo (empty($_POST['registerPhone1']) ? '' : $_POST['registerPhone1']) ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefone:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></div>
+                            <input class="form-control" type="text" name="registerPhone2" required value="<?php echo (empty($_POST['registerPhone2']) ? '' : $_POST['registerPhone2']) ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
+                            <input class="form-control" type="text" name="registerEmail" required value="<?php echo (empty($_POST['registerEmail']) ? '' : $_POST['registerEmail']) ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>RG:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                            <input class="form-control" type="text" name="registerRG" required value="<?php echo (empty($_POST['registerRG']) ? '' : $_POST['registerRG']) ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>CPF:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                            <input class="form-control" type="text" name="registerCPF" required value="<?php echo (empty($_POST['registerCPF']) ? '' : $_POST['registerCPF']) ?>">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-pass form-group">
+                            <label>Senha:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                                <input class="form-control" type="password" name="registerPass" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-pass form-group">
+                            <label>Repita a Senha:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                                <input class="form-control" type="password" name="registerRepass" required/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary pull-right" type="submit">Enviar</button>
+                </form>
+            </fieldset>
         </section>
     </body>
 </html>

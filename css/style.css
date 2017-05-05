@@ -1,10 +1,2 @@
-/* 
-    Created on : May 3, 2017, 11:46:43 AM
-    Author     : Marcelo Pereira dos Santos
-*/
-/* 
-    Created on : May 3, 2017, 1:11:53 PM
-    Author     : coven
-*/
-
+#fm_register{position:relative;float:left;width:100%;min-height:1px;padding-left:15px;padding-right:15px;position:relative;min-height:1px;padding-left:15px;padding-right:15px;position:relative;min-height:1px;padding-left:15px;padding-right:15px}@media (min-width: 768px){#fm_register{float:left;width:50%}}@media (min-width: 992px){#fm_register{float:left;width:50%}}#fm_register>form>.field-invalid{text-align:center;background-color:red;color:#ffffff;font-weight:bold;text-transform:uppercase;padding:5px 0px;border-radius:5px}#fm_register>form>.field-invalid>p{margin:0px}#fm_register>form>.rg-sucess{text-align:center;background-color:#5fd849;color:#ffffff;font-weight:bold;text-transform:uppercase;padding:5px 0px;border-radius:5px}#fm_register>form>.rg-sucess>p{margin:0px}#fm_register>form>.row>.form-pass{position:relative;float:left;width:100%;min-height:1px;padding-left:15px;padding-right:15px;position:relative;min-height:1px;padding-left:15px;padding-right:15px;position:relative;min-height:1px;padding-left:15px;padding-right:15px}@media (min-width: 768px){#fm_register>form>.row>.form-pass{float:left;width:50%}}@media (min-width: 992px){#fm_register>form>.row>.form-pass{float:left;width:50%}}
 /*# sourceMappingURL=style.css.map */
