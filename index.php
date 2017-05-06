@@ -3,7 +3,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        
+        <title>Binary Code - Cadastro de Usuários</title>
 
         <!--STYLE SHEETS-->
         <link href="css/plugins.css" type="text/css" rel="stylesheet"/>
@@ -79,14 +80,6 @@
                         <div class="input-group">
                             <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
                             <input class="form-control" type="text" name="registerRG" required value="<?php echo (empty($_POST['registerRG']) ? '' : $_POST['registerRG']) ?>">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>CPF:</label>
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
-                            <input class="form-control" type="text" name="registerCPF" required value="<?php echo (empty($_POST['registerCPF']) ? '' : $_POST['registerCPF']) ?>">
                         </div>
                     </div>
 

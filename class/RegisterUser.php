@@ -80,19 +80,6 @@ class RegisterUser extends UserBC {
       endif;
     endif;
 
-    if (!empty($this->getCpf())):
-      $query = $this->connection->prepare("SELECT cpf FROM users WHERE cpf = '{$this->getCpf()}'") or die($this->connection->errorInfo());
-      $query->execute();
-      $numRow = $query->rowCount();
-
-      if ($numRow != 0):
-        $this->setMsg("CPF já está sendo utilizado!");
-        $this->setClass("field-invalid");
-        $this->setValidator(FALSE);
-        return FALSE;
-      endif;
-    endif;
-
     if (!(empty($this->getRepass())) AND ! (empty($this->getPass()))):
       if ($this->getRepass() === $this->getPass()):
         $this->setMsg("Cadastro Realizado com Sucesso! :)");
