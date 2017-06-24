@@ -34,6 +34,16 @@
                     
                     <button class="btn btn-primary pull-right" type="submit">Entrar <i class="glyphicon glyphicon-log-in"></i></button>
                 </form>
+                <pre>
+                <?php
+                try{
+                    $instancia = new PDO("mysql:host=127.0.0.1; dbname=generate_passBC", "root", NULL);
+                } catch (PDOException $ex) {
+                    $ex->getMessage();
+                }
+                    
+                ?>
+                </pre>
             </fieldset>
             
             <fieldset id="fm_register">

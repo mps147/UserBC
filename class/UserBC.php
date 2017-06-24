@@ -8,76 +8,78 @@
  */
 abstract class UserBC {
 
-  protected $name;
-  protected $phonePrimary;
-  protected $phoneSecundy;
-  protected $email;
-  protected $rg;
-  protected $pass;
-  protected $repass;
-          function __construct() {
-    $this->setName(empty($_POST['registerName']) ? '' : $_POST['registerName']);
-    $this->setPhonePrimary(empty($_POST['registerPhone1']) ? '' : $_POST['registerPhone1']);
-    $this->setPhoneSecundy(empty($_POST['registerPhone2']) ? '' : $_POST['registerPhone2']);
-    $this->setEmail(empty($_POST['registerEmail']) ? '' : $_POST['registerEmail']);
-    $this->setRg(empty($_POST['registerRG'])? '' : $_POST['registerRG']);
-    $this->setPass(empty($_POST['registerPass'])? '' : $_POST['registerPass']);
-    $this->setRepass(empty($_POST['registerRepass'])? '' : $_POST['registerRepass']);
-  }
+    protected $name;
+    protected $phonePrimary;
+    protected $phoneSecundy;
+    protected $email;
+    protected $rg;
+    protected $pass;
+    protected $repass;
 
-  function getName() {
-    return $this->name;
-  }
+    function __construct() {
+        $this->setName(empty($_POST['registerName']) ? '' : $_POST['registerName']);
+        $this->setPhonePrimary(empty($_POST['registerPhone1']) ? '' : $_POST['registerPhone1']);
+        $this->setPhoneSecundy(empty($_POST['registerPhone2']) ? '' : $_POST['registerPhone2']);
+        $this->setEmail(empty($_POST['registerEmail']) ? '' : $_POST['registerEmail']);
+        $this->setRg(empty($_POST['registerRG']) ? '' : $_POST['registerRG']);
+        $this->setPass(empty($_POST['registerPass']) ? '' : $_POST['registerPass']);
+        $this->setRepass(empty($_POST['registerRepass']) ? '' : $_POST['registerRepass']);
+    }
 
-  function getPhonePrimary() {
-    return $this->phonePrimary;
-  }
+    function getName() {
+        return $this->name;
+    }
 
-  function getPhoneSecundy() {
-    return $this->phoneSecundy;
-  }
+    function getPhonePrimary() {
+        return $this->phonePrimary;
+    }
 
-  function getEmail() {
-    return $this->email;
-  }
+    function getPhoneSecundy() {
+        return $this->phoneSecundy;
+    }
 
-  function getRg() {
-    return $this->rg;
-  }
+    function getEmail() {
+        return $this->email;
+    }
 
-  function setName($name) {
-    $this->name = $name;
-  }
+    function getRg() {
+        return $this->rg;
+    }
 
-  function setPhonePrimary($phonePrimary) {
-    $this->phonePrimary = $phonePrimary;
-  }
+    function setName($name) {
+        $this->name = $name;
+    }
 
-  function setPhoneSecundy($phoneSecundy) {
-    $this->phoneSecundy = $phoneSecundy;
-  }
+    function setPhonePrimary($phonePrimary) {
+        $this->phonePrimary = $phonePrimary;
+    }
 
-  function setEmail($email) {
-    $this->email = $email;
-  }
+    function setPhoneSecundy($phoneSecundy) {
+        $this->phoneSecundy = $phoneSecundy;
+    }
 
-  function setRg($rg) {
-    $this->rg = $rg;
-  }
-  
-  function getPass() {
-    return $this->pass;
-  }
+    function setEmail($email) {
+        $this->email = $email;
+    }
 
-  function setPass($pass) {
-    $this->pass = $pass;
-  }
-  
-  public function getRepass() {
-    return $this->repass;
-  }
+    function setRg($rg) {
+        $this->rg = $rg;
+    }
 
-  public function setRepass($repass) {
-    $this->repass = $repass;
-  }
+    function getPass() {
+        return $this->pass;
+    }
+
+    function setPass($pass) {
+        $this->pass = $pass;
+    }
+
+    public function getRepass() {
+        return $this->repass;
+    }
+
+    public function setRepass($repass) {
+        $this->repass = $repass;
+    }
+
 }

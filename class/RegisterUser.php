@@ -102,7 +102,7 @@ class RegisterUser extends UserBC {
    */
   public function insertDB() {
     if ($this->getValidator()):
-      $this->connection->query("INSERT INTO `users` (name, phonePrimary, phoneSecundy, email, rg, cpf) VALUES ('{$this->getName()}', '{$this->getPhonePrimary()}', '{$this->getPhoneSecundy()}', '{$this->getEmail()}', '{$this->getRg()}', '{$this->getCpf()}');");
+      $this->connection->query("INSERT INTO `users` (name, phonePrimary, phoneSecundy, email, rg) VALUES ('{$this->getName()}', '{$this->getPhonePrimary()}', '{$this->getPhoneSecundy()}', '{$this->getEmail()}', '{$this->getRg()}');");
 
     endif;
   }
